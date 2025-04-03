@@ -1,16 +1,12 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Head from "next/head";
+import { Comfortaa, Poppins, Ubuntu } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const comfortaa = Comfortaa({ subsets: ["latin"], variable: "--font-comfortaa" });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-poppins" }); // Add weight
+const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-ubuntu" }); // Add weight
 
 export const metadata = {
   title: "Create Next App",
@@ -20,43 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <meta charSet="UTF-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta
-          name="keywords"
-          content="education, portfolio, Technology, Institute, programming, source-code, templates"
-        />
-        <meta name="description" content="" />
-        <meta name="author" content="Akash Mahapatra" />
-        <link rel="icon" type="image/x-icon" href="images/logo-x.png" />
-        <title>Naman Jain | Frontend Developer</title>
-        <link rel="stylesheet" href="style.css" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@100;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} ${comfortaa.variable} ${poppins.variable} ${ubuntu.variable} antialiased`}>
         {children}
       </body>
     </html>

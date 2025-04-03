@@ -57,11 +57,11 @@ const About = () => {
                         />
                     </div>
                     <div className="column right">
-                        <div className="text">I'm Naman and I'm a <span className="role">{text}</span><span className="cursor">|</span></div>
-                        <p>Seeking an entry-level opportunity with an esteemed organization where I can utilize my skills & enhance learning in the field of work. Capable of mastering new technologies.</p>
+                        <div className="text">I&apos;m Naman and I&apos;m a <span className="role">{text}</span><span className="cursor">|</span></div>
+                        <p>Seeking an entry-level opportunity with an esteemed organization where I can utilize my skills &amp; enhance learning in the field of work. Capable of mastering new technologies.</p>
                         <br />
                         <div className="text">Why Work With Me</div>
-                        <p>I'm a great communicator & love to invest the necessary time to understand the customer's problem very well.</p>
+                        <p>I&apos;m a great communicator &amp; love to invest the necessary time to understand the customer&apos;s problem very well.</p>
                         <a href="naman-resume.pdf" target="_blank" download="Naman-Jain-Resume">Download CV</a>
                     </div>
                 </div>
