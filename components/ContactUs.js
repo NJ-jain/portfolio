@@ -11,7 +11,7 @@ const ContactUs = () => {
             <p>
               Feel free to get in touch with me. I am always open to discussing new projects,
               creative ideas, or opportunities to be a part of your visions. Email me with any questions or inquiries.
-              I'll be happy to answer your questions and set up a meeting with you.
+              I&aposll be happy to answer your questions and set up a meeting with you.
             </p>
             <div className="icons">
 
