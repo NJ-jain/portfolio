@@ -62,7 +62,7 @@ const About = () => {
                         <br />
                         <div className="text">Why Work With Me</div>
                         <p>I&apos;m a great communicator &amp; love to invest the necessary time to understand the customer&apos;s problem very well.</p>
-                        <a href="naman-resume.pdf" target="_blank" download="Naman-Jain-Resume">Download CV</a>
+                        <a href="/freelancing resume.pdf" target="_blank" download="Naman-Jain-Resume">Download CV</a>
                     </div>
                 </div>
             </div>

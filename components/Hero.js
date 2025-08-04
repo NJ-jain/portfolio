@@ -57,7 +57,12 @@ const Hero = () => {
                         And I&apos;m a <span className="role">{text}</span>
                         <span className="cursor">|</span>
                     </div>
-                    <a href="#">Hire me</a>
+                    <a href="#contact" onClick={(e) => {
+                        e.preventDefault();
+                        document.getElementById('contact').scrollIntoView({ 
+                            behavior: 'smooth' 
+                        });
+                    }}>Hire me</a>
                 </div>
                 <Image
                     id="home-image"

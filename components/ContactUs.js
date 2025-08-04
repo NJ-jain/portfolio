@@ -84,7 +84,7 @@ const ContactUs = () => {
                 <div className="info">
                   <div className="head">Email</div>
                   <div className="sub-title">
-                    <a href="mailto:nn.jain5272@gmail.com" style={{ textDecoration: "none", color: "#333" }}>nn.jain5272@gmail.com</a>
+                    <a href="mailto:namanjain8720@gmail.com" style={{ textDecoration: "none", color: "#333" }}>namanjain8720@gmail.com</a>
                   </div>
                 </div>
               </div>
