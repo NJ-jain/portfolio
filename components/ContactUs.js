@@ -1,6 +1,51 @@
-import React from 'react';
+"use client"
+import React, { useState } from 'react';
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section className="contact" id="contact">
       <div className="max-width">
@@ -72,24 +117,65 @@ const ContactUs = () => {
 
           <div className="column right">
             <div className="text">Message me</div>
-            <form action="#">
+            <form onSubmit={handleSubmit}>
               <div className="fields">
                 <div className="field name">
-                  <input type="text" placeholder="Your Name" required />
+                  <input 
+                    type="text" 
+                    name="name"
+                    placeholder="Your Name" 
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required 
+                  />
                 </div>
                 <div className="field email">
-                  <input type="email" placeholder="Your Email" required />
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Your Email" 
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required 
+                  />
                 </div>
               </div>
               <div className="field">
-                <input type="text" placeholder="Subject" required />
+                <input 
+                  type="text" 
+                  name="subject"
+                  placeholder="Subject" 
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required 
+                />
               </div>
               <div className="field textarea">
-                <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                <textarea 
+                  cols="30" 
+                  rows="10" 
+                  name="message"
+                  placeholder="Message.." 
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                ></textarea>
               </div>
               <div className="button-area">
-                <button type="submit">Send message</button>
+                <button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send message'}
+                </button>
               </div>
+              {submitStatus === 'success' && (
+                <div style={{ color: 'green', marginTop: '10px', textAlign: 'center' }}>
+                  Message sent successfully!
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div style={{ color: 'red', marginTop: '10px', textAlign: 'center' }}>
+                  Failed to send message. Please try again.
+                </div>
+              )}
             </form>
           </div>
         </div>
